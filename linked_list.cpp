@@ -18,19 +18,38 @@ node* insert(node* p_tree, int key)
         p_new_tree->key_value = key;
         return p_new_tree;
     }
-    
+
     if(key < p_tree->key_value)
     {
         p_tree->p_left = insert(p_tree->p_left, key);
     }
-    else 
+    else
     {
         p_tree->p_right = insert(p_tree->p_right, key);
     }
     return p_tree;
 }
 
+node* search(node *p_tree, int key)
+{
+    if(p_tree == NULL)
+    {
+        return NULL;
+    }
+    else if(key == p_tree->key_value)
+    {
+        return p_tree;
+    }
+    else if(key < p_tree->key_value)
+    {
+        return search(p_tree->p_left, key);
+    }
+    else {
+        return search(p_tree->p_right, key);
+    }
+}
+
 int main()
 {
-    
+
 }
